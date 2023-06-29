@@ -1,28 +1,38 @@
 "use client";
-import styles from "@/components/main/Main.module.css";
-import Image from "next/image";
-import Profile from "./leftCol/Profile";
 import { useContext, useEffect, useState } from "react";
 import ToggleContext from "@/context/ToggleContext";
-import Data from "./rightCol/Data";
+// import MegaSearch from "./MegaSearch";
+// import Carousel from "./Carousel";
+// import InsuarWidjet from "./InsuarWidjet";
+// import ExpertWidget from "./ExpertWidget";
+// import MedicalWidget from "./MedicalWidget";
+// import BannerWidget from "./BannerWidget";
+// import MapWidget from "./MapWidget";
+import dynamic from "next/dynamic";
 
+const MapWidget = dynamic(() => import("./MapWidget"), { ssr: false });
+const MegaSearch = dynamic(() => import("./MegaSearch"), { ssr: false });
+const Carousel = dynamic(() => import("./Carousel"), { ssr: false });
+const InsuarWidjet = dynamic(() => import("./InsuarWidjet"), { ssr: false });
+const ExpertWidget = dynamic(() => import("./ExpertWidget"), { ssr: false });
+const BannerWidget = dynamic(() => import("./BannerWidget"), { ssr: false });
+const MedicalWidget = dynamic(() => import("./MedicalWidget"), { ssr: false });
 const Main = () => {
-  const { bgImage } = useContext(ToggleContext);
-  const [bgImage1, setBgImage1] = useState("../../../images/wallpapers/13.jpg");
-  useEffect(() => {
-    setBgImage1(bgImage);
-  }, [bgImage]);
+  useEffect(() => {}, []);
   return (
     <>
       <main
         style={{
-          backgroundImage: `url(${bgImage1})`,
+          width: "100%",
         }}
-        className={styles.main}
       >
-        <Data />
-
-        <Profile />
+        <MegaSearch />
+        <Carousel />
+        <InsuarWidjet />
+        <ExpertWidget />
+        <BannerWidget />
+        <MedicalWidget />
+        <MapWidget />
       </main>
     </>
   );

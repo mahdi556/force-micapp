@@ -1,51 +1,63 @@
-.main {
-  display: flex;
-  width: 100%;
-  /* background-image: url('../../../public/images/19.jpg'); */
-  /* background-image: url('${bgImage}'); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  overflow-y: scroll;
-  flex-direction: row;
-  /* padding-top: 90px; */
-}
-.works {
-  padding: 10px 12px 12px;
-  width: 120px;
-  border-radius: 16px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #e1e1e1;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.86);
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content:space-between;
-  align-items: center;
-}
-.works .reportText {
-  font-size: 12px;
-  font-weight: bold;
-  max-height: 40px;
-}
-.works .reportNumber {
-  font-family: 'shabnamFD';
-  font-size: 17px;
-  font-weight: bold;
-  max-height: 40px;
-  margin-top: 20px;
-}
-.works .reportIcon {
-margin-bottom: 20px;
-border-radius: 50%;
-background-color: rgba(15, 157, 88, 0.11);
-padding: 5px;
-}
 
-.profile {
-  border-radius: 8px;
-  box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.23);
+.inputWrapper{
+  width: 80%;
+  background-color: "#fff";
+  height: 50px;
+  border: solid 1px #ddd;
+  border-radius: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px; 
+  box-shadow: 0px 0px 11px 9px rgba(0,0,0,0.1);
+  display: flex;
+  
+}
+.inputMega{
+  border: none;
+  width: 100%;
+  font-size: 13px;
+}
+.inputMega:focus{
+  outline: none;
+   
+}
+.insuarWidjet{
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #11999e;
+  color:#fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 80%;
+  text-align: center;
+}
+.expertWidgetTxt1{
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+.expertWidgetTxt2{
+  font-size: 10px;
+  font-weight: 300;
+  color: #11999e;
+}
+.expertWidgetTxt3{
+  background-color: #77aeb1;
+  border-radius: 50%;
+  width:60px ;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.expertWidgetTxt4{
+  font-size: 12px;
+  font-weight: 500;
+  color: darkslategrey;
+  text-align: center;
 }
