@@ -13,7 +13,7 @@
   },
   "plugins": {
     "SplashScreen": {
-      "image": "'./resources/splash.png'",
+      "image": "./resources/images/splash.png",
       "launchShowDuration": 3000,
       "launchAutoHide": true,
       "launchFadeOutDuration": 3000,
