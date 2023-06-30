@@ -9,6 +9,8 @@ import ToggleContext from "@/context/ToggleContext";
 // import BannerWidget from "./BannerWidget";
 // import MapWidget from "./MapWidget";
 import dynamic from "next/dynamic";
+import { Capacitor } from "@capacitor/core";
+import { StatusBar } from "@capacitor/status-bar";
 
 const MapWidget = dynamic(() => import("./MapWidget"), { ssr: false });
 const MegaSearch = dynamic(() => import("./MegaSearch"), { ssr: false });
@@ -18,7 +20,16 @@ const ExpertWidget = dynamic(() => import("./ExpertWidget"), { ssr: false });
 const BannerWidget = dynamic(() => import("./BannerWidget"), { ssr: false });
 const MedicalWidget = dynamic(() => import("./MedicalWidget"), { ssr: false });
 const Main = () => {
-  useEffect(() => {}, []);
+  const [statusBarColor, setStatusBarColor] = useState("#11999e");
+
+  useEffect(() => {
+    if (Capacitor.isNativePlatform()) {
+      StatusBar.setBackgroundColor({
+        color: statusBarColor,
+      });
+    }
+  }, [statusBarColor]);
+
   return (
     <>
       <main

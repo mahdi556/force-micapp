@@ -41,7 +41,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-inner ">
           <div className="carousel-item active">
-            <Image
+            <img
               src="/images/wallpapers/29.jpg"
               className="d-block mx-auto  rounded-4"
               width={width * 0.9}
@@ -50,7 +50,7 @@ const Carousel = () => {
             />
           </div>
           <div className="carousel-item">
-            <Image
+            <img
               src="/images/wallpapers/20.jpg"
               className="d-block mx-auto rounded-4"
               width={width * 0.9}
@@ -59,7 +59,7 @@ const Carousel = () => {
             />
           </div>
           <div className="carousel-item">
-            <Image
+            <img
               src="/images/wallpapers/24.jpg"
               className="d-block mx-auto rounded-4" 
               width={width * 0.9}

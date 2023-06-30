@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
     return(
         <>
         <div className="mt-3">
-            <Image src='https://en.wikipedia.org/wiki/File:Bachalpsee_reflection.jpg' height={width/3} width={width} alt="" />
+            <img src='https://upload.wikimedia.org/wikipedia/commons/8/8f/Bachalpsee_reflection.jpg' height={width/3} width={width} alt="" />
         </div>
         </>
     )

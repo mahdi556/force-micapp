@@ -1,51 +1,51 @@
 @font-face {
   font-family: "shabnam";
-  src: url("../../public/fonts/Shabnam.ttf");
+  src: url("../assets/fonts/Shabnam.ttf");
   font-weight: 400;
 }
 @font-face {
   font-family: "shabnam";
-  src: url("../../public/fonts/Shabnam-Bold.ttf");
+  src: url("../assets/fonts/Shabnam-Bold.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: "shabnam";
-  src: url("../../public/fonts/Shabnam-Thin.ttf");
+  src: url("../assets/fonts/Shabnam-Thin.ttf");
   font-weight: 300;
 }
 @font-face {
   font-family: "shabnam";
-  src: url("../../public/fonts/Shabnam-Light.ttf");
+  src: url("../assets/fonts/Shabnam-Light.ttf");
   font-weight: 100;
 }
 @font-face {
   font-family: "shabnam";
-  src: url("../../public/fonts/Shabnam-Medium.ttf");
+  src: url("../assets/fonts/Shabnam-Medium.ttf");
   font-weight: 500;
 }
 @font-face {
   font-family: "shabnamFD";
-  src: url("../../public/fonts/Farsi-Digits/Shabnam-FD.ttf");
+  src: url("../assets/fonts/Farsi-Digits/Shabnam-FD.ttf");
   font-weight: 400;
 }
 @font-face {
   font-family: "shabnamFD";
-  src: url("../../public/fonts/Farsi-Digits//Shabnam-Bold-FD.ttf");
+  src: url("../assets/fonts/Farsi-Digits//Shabnam-Bold-FD.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: "shabnamFD";
-  src: url("../../public/fonts/Farsi-Digits/Shabnam-Thin-FD.ttf");
+  src: url("../assets/fonts/Farsi-Digits/Shabnam-Thin-FD.ttf");
   font-weight: 300;
 }
 @font-face {
   font-family: "shabnamFD";
-  src: url("../../public/fonts/Farsi-Digits/Shabnam-Light-FD.ttf");
+  src: url("../assets/fonts/Farsi-Digits/Shabnam-Light-FD.ttf");
   font-weight: 100;
 }
 @font-face {
   font-family: "shabnamFD";
-  src: url("../../public/fonts/Farsi-Digits/Shabnam-Medium-FD.ttf");
+  src: url("../assets/fonts/Farsi-Digits/Shabnam-Medium-FD.ttf");
   font-weight: 500;
 }
 body {

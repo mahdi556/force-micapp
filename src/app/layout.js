@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "bootstrap/dist/css/bootstrap.rtl.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
@@ -8,18 +8,16 @@ import { ToggleProvider } from "@/context/ToggleContext";
 // import SideBar from "@/components/sidebar/SideBare";
 import Head from "next/head";
 import Footer from "@/components/Footer";
-import { StatusBar, Style } from '@capacitor/status-bar';
+import { StatusBar, Style } from "@capacitor/status-bar";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), { ssr: false });
+import { Capacitor } from "@capacitor/core";
+const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
+  ssr: false,
+});
 
- export default function RootLayout({ children }) {
-  useEffect(() => {
-    StatusBar.setBackgroundColor({
-      color:'#11999e'
-    })
-  }, []);
-
+export default function RootLayout({ children }) {
+  
 
   return (
     <html lang="fa" dir="rtl">

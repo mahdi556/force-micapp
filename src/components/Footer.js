@@ -66,12 +66,10 @@ export default function Footer() {
           marginRight: "auto",
           marginLeft: "auto",
         }}
-        selectedColor="red"
         value={value}
         onChange={handleChange}
       >
         <BottomNavigationAction
-          selectedColor="red"
           label="خانه"
           value="recents"
            icon={<HomeIcon />}
