@@ -25,7 +25,10 @@
       "splashFullScreen": true,
       "splashImmersive": true,
       "layoutName": "launch_screen",
-      "useDialog": true
+      "useDialog": false
+    },
+    "StatusBar": {
+      "backgroundColor": "#11999e"
     }
   },
   "resources": {
