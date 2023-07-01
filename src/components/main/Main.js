@@ -20,16 +20,24 @@ const ExpertWidget = dynamic(() => import("./ExpertWidget"), { ssr: false });
 const BannerWidget = dynamic(() => import("./BannerWidget"), { ssr: false });
 const MedicalWidget = dynamic(() => import("./MedicalWidget"), { ssr: false });
 const Main = () => {
-  const [statusBarColor, setStatusBarColor] = useState("#11999e");
+  // const [statusBarColor, setStatusBarColor] = useState("#11999e");
 
-  useEffect(() => {
-    if (Capacitor.isNativePlatform()) {
-      StatusBar.setBackgroundColor({
-        color: statusBarColor,
-      });
-    }
-  }, [statusBarColor]);
-
+  // useEffect(() => {
+  //   if (Capacitor.isNativePlatform()) {
+  //     StatusBar.setBackgroundColor({
+  //       color: statusBarColor,
+  //     });
+  //   }
+  // }, [statusBarColor]);
+ 
+  const setStatusBarColor = async () => {
+    await StatusBar.setStyle({
+      backgroundColor: '#000000',
+      style: Style.Dark
+    });
+  };
+  
+  setStatusBarColor();
   return (
     <>
       <main
