@@ -30,14 +30,14 @@ const Main = () => {
   //   }
   // }, [statusBarColor]);
  
-  const setStatusBarColor = async () => {
-    await StatusBar.setStyle({
-      backgroundColor: '#000000',
-      style: Style.Dark
-    });
-  };
+  // const setStatusBarColor = async () => {
+  //   await StatusBar.setStyle({
+  //     backgroundColor: '#000000',
+  //     style: Style.Dark
+  //   });
+  // };
   
-  setStatusBarColor();
+  // setStatusBarColor();
   return (
     <>
       <main

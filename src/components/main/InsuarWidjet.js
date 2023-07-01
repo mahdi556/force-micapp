@@ -5,7 +5,7 @@ const InsuarWidjet = ()=>{
     return(
     <>
  <div className={styles.insuarWidjet}>
-   sss جستجوی بیمه ها
+    جستجوی بیمه ها
  </div>
     </>
     )
