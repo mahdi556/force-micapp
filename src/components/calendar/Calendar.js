@@ -10,13 +10,13 @@ const IndexPage = () => {
   const endDate = jMoment("1403/01/20", "jYYYY/jM/jD");
   // Set days of week in Persian
   const persianDaysOfWeek = [
-    "شنبه",
-    "یکشنبه",
-    "دوشنبه",
-    "سه شنبه",
-    "چهارشنبه",
-    "پنجشنبه",
-    "جمعه",
+    "ش",
+    "ی",
+    "د",
+    "س",
+    "چ",
+    "پ",
+    "ج",
   ];
 
   // Set month names in Persian
@@ -64,7 +64,6 @@ const IndexPage = () => {
   // Create an array of arrays to store the dates by week
   const persianDatesByWeek = [];
   let currentDay = startOfMonth.clone();
-  console.log(currentDay);
   let currentWeek = [];
   while (currentDay.isBefore(endOfMonth) || currentDay.isSame(endOfMonth)) {
     currentWeek.push(currentDay.clone().subtract(1, "day"));
@@ -78,9 +77,9 @@ const IndexPage = () => {
   const persianCurrentMonth = persianMonthNames[currentDate.jMonth()];
   // Render component
   return (
-    <div className={styles.main}>
-      <div className="d-flex   ">
-        <div className=" d-flex me-4 ms-auto">
+    <div className={` mx-auto ${styles.main}`}>
+      <div className="d-flex mx-auto  ">
+        <div className={` d-flex align-items-center mx-auto `}>
           {jMoment().jMonth() !== currentDate.jMonth() ||
           jMoment().jYear() !== currentDate.jYear() ? (
             <button
@@ -102,12 +101,7 @@ const IndexPage = () => {
           </button>
         </div>
       </div>
-      <div
-        style={{
-          height: "80vh",
-          overflowY: "scroll",
-        }}
-      >
+  
         <table className="col-12">
           <thead>
             <tr>
@@ -137,8 +131,8 @@ const IndexPage = () => {
                     >
                       {jMoment().format("jYYYY/jM/jD") ===
                       date.format("jYYYY/jM/jD")
-                        ? ` امروز: ${date.format(`jD ${persianMonth}`)}  `
-                        : date.format(`jD ${persianMonth}`)}
+                        ? ` ${date.format(`jD `)}  `
+                        : date.format(`jD `)}
                     </td>
                   );
                 })}
@@ -146,7 +140,6 @@ const IndexPage = () => {
             ))}
           </tbody>
         </table>
-      </div>
     </div>
   );
 };

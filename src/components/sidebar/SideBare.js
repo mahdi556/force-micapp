@@ -58,7 +58,7 @@ export default function SwipeableTemporaryDrawer() {
           </div>
           <ul className="d-flex flex-column mt-3">
             <li className="d-flex align-items-baseline mb-4">
-              <Image src="/images/home.svg" className="me-4" width={20} height={20} />
+              <img src="/images/home.svg" className="me-4" width={20} height={20} />
               <h6  className={styles.menuItem}>صفحه اصلی</h6>
             </li>
             <li className="d-flex align-items-baseline mb-4">

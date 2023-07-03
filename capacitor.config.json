@@ -10,10 +10,6 @@
     "keystorKeyAlias": "micappKey",
     "KeystoreKeyPassword": "Mahdi@347136"
   },
-  "server": {
-    "url": "http://192.168.1.103",
-    "cleartext": true
-  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 4000,

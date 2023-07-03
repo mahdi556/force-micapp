@@ -15,10 +15,33 @@ import { Capacitor } from "@capacitor/core";
 const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
   ssr: false,
 });
+import { App as CapacitorApp } from "@capacitor/app";
+
+// const CapacitorApp = dynamic(() => import("@capacitor/app"), {
+//   ssr: false,
+// });
 
 export default function RootLayout({ children }) {
-  
+  const [statusBarColor, setStatusBarColor] = useState("#11999e");
 
+  useEffect(() => {
+    CapacitorApp.addListener("backButton", ({ canGoBack }) => {
+      if (!canGoBack) {
+        // The user is on the root page, so exit the app.
+        CapacitorApp.exitApp();
+      } else {
+        // There are more pages to go back to, so go back one page.
+        window.history.back();
+      }
+    });
+    CapacitorApp.addListener("onAppOpen", () => {
+      if (Capacitor.isNativePlatform()) {
+        StatusBar.setBackgroundColor({
+          color: statusBarColor,
+        });
+      }
+    });
+  }, []);
   return (
     <html lang="fa" dir="rtl">
       <Head>
