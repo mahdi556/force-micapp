@@ -45,11 +45,12 @@ export default function SwipeableTemporaryDrawer() {
           }}
         >
           <div className="d-flex align-items-center  bgMic px-3 py-3">
-            <Image
+            <img
               className={styles.avatar}
               src="/images/profile.jpeg"
               width={90}
               height={90}
+              alt=""
             />
             <div className="d-flex ms-3 flex-column">
               <span className={styles.userName}>مهدی حقیقتی</span>

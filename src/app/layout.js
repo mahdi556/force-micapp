@@ -17,10 +17,6 @@ const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
 });
 import { App as CapacitorApp } from "@capacitor/app";
 
-// const CapacitorApp = dynamic(() => import("@capacitor/app"), {
-//   ssr: false,
-// });
-
 export default function RootLayout({ children }) {
   const [statusBarColor, setStatusBarColor] = useState("#11999e");
 
@@ -36,9 +32,7 @@ export default function RootLayout({ children }) {
     });
     CapacitorApp.addListener("onAppOpen", () => {
       if (Capacitor.isNativePlatform()) {
-        StatusBar.setBackgroundColor({
-          color: statusBarColor,
-        });
+        StatusBar.setBackgroundColor('#ffffff');
       }
     });
   }, []);

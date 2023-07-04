@@ -1,0 +1,21 @@
+.searchBox{
+  width: 90%;
+  background-color: #c6eaeb;
+  border-radius: 20px;
+}
+.searchInput{
+  width: 90%;
+  background-color: #c6eaeb;
+  border:none
+}
+.searchInput:focus{
+  outline: none;
+}
+.resultHeader{
+  background-color: #11999e;
+  border-radius: 15px;
+  width: 90%;
+  color: #fff;
+  font-family: shabnam;
+  font-size: 15px;
+}
