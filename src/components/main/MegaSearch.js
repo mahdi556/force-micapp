@@ -13,7 +13,7 @@ const MegaSearch = () => {
       <div
         className="col-12"
         style={{
-          backgroundColor: "#11999e",
+          // backgroundColor: "#11999e",
           borderBottom: "solid 2px #ddd",
         }}
       >
@@ -22,7 +22,6 @@ const MegaSearch = () => {
           style={{
             backgroundColor: "#fff",
             height: "100%",
-            // borderRadius: 25,
             borderTopLeftRadius: 25,
             borderTopRightRadius: 25,
             justifyContent: "center",

@@ -48,14 +48,17 @@ export default function RootLayout({ children }) {
       </Head>
       <body
         style={{
-          paddingTop: 65,
+          paddingTop: 90,
         }}
       >
         <ToggleProvider>
           {appLoaded ? (
             <>
               <Header />
-              <div>
+              <div
+              style={{
+              }}
+              >
                 <SideBar />
                 {children}
               </div>

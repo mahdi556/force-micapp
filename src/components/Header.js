@@ -7,8 +7,29 @@ const Header = () => {
   const { sidebar, setSidebar } = useContext(ToggleContext);
 
   return (
-    <nav className="navbar navbar-expand-lg nav-bg fixed-top bgMic" >
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg nav-bg fixed-top bgMic mb-4 " 
+    
+    >
+      <div className="container-fluid position-relative ">
+        <div className="position-absolute w-100"
+        style={{
+          backgroundColor: "#11999e",
+          top:'100%',
+          right:0,
+          height:50,         
+        }}
+        >
+          <div className="w-100"
+          style={{
+            backgroundColor:'#fff',
+            borderTopLeftRadius: 25,
+            borderTopRightRadius: 25,
+            height:50,
+          }}
+          >
+            
+          </div>
+        </div>
         <button
           style={{
             textDecoration: "none",
