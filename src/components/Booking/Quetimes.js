@@ -24,8 +24,7 @@ const Quetimes = () => {
 
   // Example usage
   const intervals = splitTime();
-  console.log(intervals);
-  return (
+   return (
     <>
       <div className="row g-3 px-4 mt-3 w-100" dir="ltr">
         {intervals.map((item, key) => (

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">micapp</string>
-    <string name="title_activity_main">micapp</string>
+    <string name="app_name">میک اَپ</string>
+    <string name="title_activity_main">میک اَپ</string>
     <string name="package_name">com.micapp.app</string>
     <string name="custom_url_scheme">com.micapp.app</string>
 </resources>

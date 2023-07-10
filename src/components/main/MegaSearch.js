@@ -1,23 +1,24 @@
-import styles from '@/components/main/Main.module.css'
-import { useRouter } from 'next/navigation';
+import styles from "@/components/main/Main.module.css";
+import { useRouter  } from "next/navigation";
 const MegaSearch = () => {
-  const router=useRouter()
-  const handleSearch=(e)=>{
-    if(e.length >2){
-      router.push('/megaSearch')
+  const router = useRouter ();
+  const handleSearch = (e) => {
+    if (e.length > 2) {
+      router.push(`/megaSearch/?text=${e}`);
     }
-  }
-  
+  };
+
   return (
     <>
-      <div className="col-12"
+      <div
+        className="col-12"
         style={{
           backgroundColor: "#11999e",
-          borderBottom:'solid 2px #ddd'
-      
+          borderBottom: "solid 2px #ddd",
         }}
       >
-        <div className="d-flex"
+        <div
+          className="d-flex"
           style={{
             backgroundColor: "#fff",
             height: "100%",
@@ -32,14 +33,13 @@ const MegaSearch = () => {
             borderColor: "#ddd",
           }}
         >
-          <div  className={styles.inputWrapper}
-             
-          >
-            <input className={styles.inputMega}
+          <div className={styles.inputWrapper}>
+            <input
+              className={styles.inputMega}
               type="text"
               name="mega"
               placeholder="جستجو در مراکز درمانی، پزشکان و ..."
-              onChange={(e)=>handleSearch(e.target.value)}
+              onChange={(e) => handleSearch(e.target.value)}
             />
           </div>
         </div>

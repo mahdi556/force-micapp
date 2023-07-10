@@ -26,6 +26,7 @@ const Header = () => {
           href="#"
           style={{
             fontSize: 24,
+            fontFamily:'shabnam'
           }}
         >
           میک اَپ

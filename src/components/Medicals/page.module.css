@@ -1,0 +1,68 @@
+.card {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 8px 19px -6px #383838;
+  box-shadow: 0px 8px 19px -6px #383838;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 20px;
+}
+.avatar{
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+.title{
+  font-size: 17px;
+  font-weight: 600;
+}
+.txt1{
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+  font-family: shabnamFD;
+}
+.txt2{
+  font-size: 12px;
+  font-weight: bold;
+}
+.txt3{
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+}
+.sec1{
+  border-radius: 10px;
+  border: #11999e dotted 1px;
+  background-color:#c6eaeb;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.sec2{
+  border-radius: 10px;
+  background-color: #188b9f;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.submitBtn{
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  background-color: #2ECC71;
+  border-top-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  width: 60%;
+  font-weight: 500;
+  
+}
+.canselBtn{
+  color: red;
+  font-size: 12px;
+  border:none;
+  background-color: #fff;
+  width: 40%;
+  text-decoration: none;
+  font-weight: bold;
+}

@@ -2,20 +2,16 @@
 import * as React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import FolderIcon from "@mui/icons-material/Folder";
-import RestoreIcon from "@mui/icons-material/Restore";
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonIcon from '@mui/icons-material/Person';
 import HomeIcon from '@mui/icons-material/Home';
 import Image from "next/image";
-import location from '../../public/images/location.svg'
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
   const [width, setWidth] = React.useState(500);
-
+  const router = useRouter();
   React.useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -73,6 +69,7 @@ export default function Footer() {
           label="خانه"
           value="recents"
            icon={<HomeIcon />}
+           onClick={()=>router.push('/')}
         />
         <BottomNavigationAction
           label="نوبت من"

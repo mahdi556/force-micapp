@@ -19,3 +19,8 @@
   font-family: shabnam;
   font-size: 15px;
 }
+.helpResult{
+  width: 90%;
+  background-color: #c6eaeb;
+  border-radius: 10px;
+}

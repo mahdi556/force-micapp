@@ -11,6 +11,7 @@ import ToggleContext from "@/context/ToggleContext";
 import dynamic from "next/dynamic";
 import { Capacitor } from "@capacitor/core";
 import { StatusBar } from "@capacitor/status-bar";
+import Splash from "./Splash";
 
 const MapWidget = dynamic(() => import("./MapWidget"), { ssr: false });
 const MegaSearch = dynamic(() => import("./MegaSearch"), { ssr: false });

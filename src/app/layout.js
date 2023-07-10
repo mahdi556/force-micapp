@@ -5,7 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import Header from "../components/Header";
 import { ToggleProvider } from "@/context/ToggleContext";
-// import SideBar from "@/components/sidebar/SideBare";
+import Splash from "@/components/main/Splash";
 import Head from "next/head";
 import Footer from "@/components/Footer";
 import { StatusBar, Style } from "@capacitor/status-bar";
@@ -19,8 +19,11 @@ import { App as CapacitorApp } from "@capacitor/app";
 
 export default function RootLayout({ children }) {
   const [statusBarColor, setStatusBarColor] = useState("#11999e");
-
+  const [appLoaded, setAppLoaded] = useState(false);
   useEffect(() => {
+    setTimeout(() => {
+      setAppLoaded(true);
+    }, 6000);
     CapacitorApp.addListener("backButton", ({ canGoBack }) => {
       if (!canGoBack) {
         // The user is on the root page, so exit the app.
@@ -32,7 +35,7 @@ export default function RootLayout({ children }) {
     });
     CapacitorApp.addListener("onAppOpen", () => {
       if (Capacitor.isNativePlatform()) {
-        StatusBar.setBackgroundColor('#ffffff');
+        StatusBar.setBackgroundColor("#ffffff");
       }
     });
   }, []);
@@ -49,17 +52,18 @@ export default function RootLayout({ children }) {
         }}
       >
         <ToggleProvider>
-          <Header />
-          <div
-            className="
-          // d-flex justify-content-start  
-          position-relative
-           "
-          >
-            <SideBar />
-            {children}
-          </div>
-          <Footer />
+          {appLoaded ? (
+            <>
+              <Header />
+              <div>
+                <SideBar />
+                {children}
+              </div>
+              <Footer />
+            </>
+          ) : (
+            <Splash />
+          )}
         </ToggleProvider>
       </body>
       <Script

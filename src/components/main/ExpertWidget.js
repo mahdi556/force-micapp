@@ -39,19 +39,19 @@ const ExpertWidget = () => {
             <div className={styles.expertWidgetTxt3}>
               <Image src="images/bandaj.svg" height={40} width={40} alt="" />
             </div>
-            <div className={styles.expertWidgetTxt4}> قلب و عروق</div>
+            <div className={styles.expertWidgetTxt4}> دهان و دندان</div>
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center">
             <div className={styles.expertWidgetTxt3}>
               <Image src="images/bandaj.svg" height={40} width={40} alt="" />
             </div>
-            <div className={styles.expertWidgetTxt4}>کلیه و مجاری ادراری</div>
+            <div className={styles.expertWidgetTxt4}>ارتوپدی</div>
           </div>
           <div className="d-flex flex-column justify-content-center align-items-center">
             <div className={styles.expertWidgetTxt3}>
               <Image src="images/bandaj.svg" height={40} width={40} alt="" />
             </div>
-            <div className={styles.expertWidgetTxt4}>مغز و اعصاب</div>
+            <div className={styles.expertWidgetTxt4}>کودکان</div>
           </div>
         </div>
       </div>
