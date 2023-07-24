@@ -34,5 +34,7 @@
   },
   "resources": {
     "images": ["./resources/images/*"]
-  }
+  },
+  "bundledWebRuntime": true
+
 }

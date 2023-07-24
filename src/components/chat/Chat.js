@@ -24,7 +24,7 @@ const Chat = () => {
                minWidth:20,
                maxWidth:20,
                borderRadius:'50%'
-               }} height={15} width={15} />
+               }} height={15} width={15} alt="" />
               <div className={`mx-2 ${styles.bubbleRight}`}>
                 <p>این پیام تست است.</p>
               </div>

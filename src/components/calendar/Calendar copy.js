@@ -81,11 +81,11 @@ const IndexPage = () => {
       <div className="d-flex   ">
         <div className=" d-flex ms-auto">
           <button className={styles.navButton} onClick={handlePrevMonth}>
-            <Image src="/images/chevronRight.svg" height={10} width={10} />
+            <Image src="/images/chevronRight.svg" height={10} width={10} alt="" />
           </button>
           <div className={styles.monthTitle}>{persianCurrentMonth} {currentDate.format('jYYYY')}</div>
           <button className={styles.navButton} onClick={handleNextMonth}>
-            <Image src="/images/chevronLeft.svg" height={10} width={10} />
+            <Image src="/images/chevronLeft.svg" height={10} width={10} alt=""/>
           </button>
         </div>
       </div>

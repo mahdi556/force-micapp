@@ -43,7 +43,7 @@ const Doctor = () => {
         >
           <div className="d-flex mb-4 align-items-center justify-content-between">
             <span className={styles.txt1}>اطلاعات پزشک</span>
-            <Image src="/images/home.svg" height={25} width={25} />
+            <Image src="/images/home.svg" height={25} width={25} alt="" />
           </div>
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex flex-column align-items-center">

@@ -80,6 +80,7 @@ export default function SwipeableTemporaryDrawer() {
                 className="me-4"
                 width={20}
                 height={20}
+                alt=""
               />
               <h6 className={styles.menuItem}>مراکز درمانی</h6>
             </li>
@@ -89,6 +90,7 @@ export default function SwipeableTemporaryDrawer() {
                 className="me-4"
                 width={20}
                 height={20}
+                alt=""
               />
               <h6 className={styles.menuItem}>نمایش نقشه</h6>
             </li>
@@ -99,6 +101,7 @@ export default function SwipeableTemporaryDrawer() {
                 className="me-4"
                 width={20}
                 height={20}
+                alt=""
               />
               <h6 className={styles.menuItem}>پروفایل</h6>
             </li>
@@ -108,6 +111,7 @@ export default function SwipeableTemporaryDrawer() {
                 className="me-4"
                 width={20}
                 height={20}
+                alt=""
               />
               <h6 className={styles.menuItem}>فروشگاه</h6>
             </li>
@@ -118,6 +122,7 @@ export default function SwipeableTemporaryDrawer() {
                 className="me-4"
                 width={20}
                 height={20}
+                alt=""
               />
               <h6 className={styles.menuItem}>خروج</h6>
             </li>

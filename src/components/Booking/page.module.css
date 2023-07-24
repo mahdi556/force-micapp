@@ -19,10 +19,51 @@
   font-weight: bold;
 }
 .timeSell{
+  background-color: red;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: ShabnamFD;
+  font-weight: 500;
+  min-height: 60px;
+}
+.timeNotrefer{
+  background-color: red;
+  opacity: .25;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: ShabnamFD;
+  font-weight: 500;
+  min-height: 60px;
+}
+.timefree{
   background-color: #11999e;
   border-radius: 10px;
   text-align: center;
   color: #fff;
   font-family: ShabnamFD;
   font-weight: 500;
+  min-height: 60px;
+ 
+}
+.timeDelay{
+  background-color: #abc517;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: ShabnamFD;
+  font-weight: 500;
+  min-height: 60px;
+ 
+}
+.timeDone{
+  background-color: #715eb8;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: ShabnamFD;
+  font-weight: 500;
+  min-height: 60px;
+ 
 }

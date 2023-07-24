@@ -16,7 +16,7 @@ const Header = () => {
           backgroundColor: "#11999e",
           top:'100%',
           right:0,
-          height:50,         
+          height:25,         
         }}
         >
           <div className="w-100"
@@ -24,7 +24,7 @@ const Header = () => {
             backgroundColor:'#fff',
             borderTopLeftRadius: 25,
             borderTopRightRadius: 25,
-            height:50,
+            height:25,
           }}
           >
             

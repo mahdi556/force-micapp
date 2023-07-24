@@ -40,7 +40,7 @@ export default function MedInfo({ status, handleStatus }) {
           />
           <div className={`d-flex mt-2 px-3 align-items-center ${styles.sec1}`}>
             <div className={styles.expertWidgetTxt3}>
-              <Image src="/images/bandaj.svg" width={25} height={25} />
+              <Image src="/images/bandaj.svg" width={25} height={25} alt="" />
             </div>
             <div className="d-flex ms-3 flex-column">
               <h4 className={styles.txt1}>کلینیک زیبایی رویال دکتر فروتن</h4>
@@ -53,6 +53,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>تعداد کلینیک : 3</span>
           </div>
@@ -62,6 +63,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>تعداد پزشکان : 10</span>
           </div>
@@ -71,6 +73,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>بیمه های طرف قرارداد : تامین اجتماعی، نیروهای مسلح</span>
           </div>
@@ -80,6 +83,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>متدهای درمانی : زیبایی، تزریق ژل-بوتاکس،میکرونیدلینگ، لیفت نخ</span>
           </div>
@@ -89,6 +93,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>تجهیزات درمانی : لیزر موهای زائد توسط دستگاه کندلاجنتل مکس</span>
           </div>
@@ -98,6 +103,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>آدرس : چهارباغ بالا مجتمع اوسان ورودی اداری کاخ 2 طبقه دوم واحد 5</span>
           </div>
@@ -107,6 +113,7 @@ export default function MedInfo({ status, handleStatus }) {
               className="me-2"
               height={25}
               width={25}
+              alt=""
             />
             <span className={styles.txt3}>تلفن : 0913254121-0912547244-03132542185-031574121</span>
           </div>

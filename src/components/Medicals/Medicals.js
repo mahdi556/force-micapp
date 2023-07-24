@@ -50,6 +50,7 @@ const Medicals = () => {
                 width={25}
                 height={25}
                 className="me-2"
+                alt=""
               />
               <span className={styles.txt1}>
                 متدهای درمانی: {item.methodes}

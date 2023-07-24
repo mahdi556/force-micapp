@@ -1,11 +1,12 @@
 import Booking from "@/components/Booking/Booking";
+import { QueProvider } from "@/context/QueContext ";
 
- 
 const pageBooking = () => {
   return (
     <>
-     <Booking />
-
+      <QueProvider>
+        <Booking />
+      </QueProvider>
     </>
   );
 };

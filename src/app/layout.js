@@ -12,18 +12,26 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { Capacitor } from "@capacitor/core";
+import 'sweetalert2/src/sweetalert2.scss'
+// import { ScreenOrientation } from "@capacitor/sc";
 const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
   ssr: false,
 });
 import { App as CapacitorApp } from "@capacitor/app";
+import axios from "axios";
 
 export default function RootLayout({ children }) {
+  axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
   const [statusBarColor, setStatusBarColor] = useState("#11999e");
-  const [appLoaded, setAppLoaded] = useState(false);
+  const [appLoaded, setAppLoaded] = useState(true);
+  // const screenOrientation = new ScreenOrientation();
+  // screenOrientation.lock("portrait");
   useEffect(() => {
-    setTimeout(() => {
-      setAppLoaded(true);
-    }, 6000);
+    //  window.screen.orientation.lock('portrait');
+    // setTimeout(() => {
+    //   setAppLoaded(true);
+    // }, 6000);
     CapacitorApp.addListener("backButton", ({ canGoBack }) => {
       if (!canGoBack) {
         // The user is on the root page, so exit the app.
@@ -48,7 +56,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body
         style={{
-          paddingTop: 90,
+          paddingTop: 80,
         }}
       >
         <ToggleProvider>
@@ -56,8 +64,9 @@ export default function RootLayout({ children }) {
             <>
               <Header />
               <div
-              style={{
-              }}
+                style={{
+                  zIndex: 100,
+                }}
               >
                 <SideBar />
                 {children}

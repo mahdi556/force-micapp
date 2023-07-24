@@ -1,23 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import jMoment from "moment-jalaali";
 import styles from "@/components/calendar/Calendar.module.css";
 import Image from "next/image";
+import QueContext from "@/context/QueContext ";
 
 const IndexPage = () => {
   // Set initial start and end dates
+  const { activeDate, setActiveDate } = useContext(QueContext);
   const startDate = jMoment("1402/01/10", "jYYYY/jM/jD");
   const endDate = jMoment("1403/01/20", "jYYYY/jM/jD");
   // Set days of week in Persian
-  const persianDaysOfWeek = [
-    "ش",
-    "ی",
-    "د",
-    "س",
-    "چ",
-    "پ",
-    "ج",
-  ];
+  const persianDaysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
 
   // Set month names in Persian
   const persianMonthNames = {
@@ -39,6 +33,7 @@ const IndexPage = () => {
   const [currentDate, setCurrentDate] = useState(startDate);
   useEffect(() => {
     setCurrentDate(jMoment());
+    setActiveDate(jMoment());
   }, []);
   // Function to display previous month's dates
   const handlePrevMonth = () => {
@@ -75,72 +70,95 @@ const IndexPage = () => {
   }
   persianDatesByWeek.push(currentWeek);
   const persianCurrentMonth = persianMonthNames[currentDate.jMonth()];
+  const handleClickDay = (date) => {
+    setActiveDate(date);
+    // console.log(date)
+  };
+
   // Render component
   return (
-    <div className={` mx-auto ${styles.main}`}>
-      <div className="d-flex mx-auto  ">
-        <div className={` d-flex align-items-center mx-auto `}>
-          {jMoment().jMonth() !== currentDate.jMonth() ||
-          jMoment().jYear() !== currentDate.jYear() ? (
-            <button
-              type=""
-              className={styles.todayBtn}
-              onClick={() => setCurrentDate(jMoment())}
-            >
-              امروز
-            </button>
-          ) : null}
-          <button className={styles.navButton} onClick={handlePrevMonth}>
-            <Image src="/images/chevronRight.svg" height={10} width={10} />
-          </button>
-          <div className={styles.monthTitle}>
-            {persianCurrentMonth} {currentDate.format("jYYYY")}
+    <>
+      {activeDate && (
+        <div className={` mx-auto ${styles.main}`}>
+          <div className="d-flex mx-auto  ">
+            <div className={` d-flex align-items-center mx-auto `}>
+              {jMoment().jMonth() !== currentDate.jMonth() ||
+              jMoment().jYear() !== currentDate.jYear() ? (
+                <button
+                  type=""
+                  className={styles.todayBtn}
+                  onClick={() => setCurrentDate(jMoment())}
+                >
+                  امروز
+                </button>
+              ) : null}
+              <button className={styles.navButton} onClick={handlePrevMonth}>
+                <Image
+                  src="/images/chevronRight.svg"
+                  height={10}
+                  width={10}
+                  alt=""
+                />
+              </button>
+              <div className={styles.monthTitle}>
+                {persianCurrentMonth} {currentDate.format("jYYYY")}
+              </div>
+              <button className={styles.navButton} onClick={handleNextMonth}>
+                <Image
+                  src="/images/chevronLeft.svg"
+                  height={10}
+                  width={10}
+                  alt=""
+                />
+              </button>
+            </div>
           </div>
-          <button className={styles.navButton} onClick={handleNextMonth}>
-            <Image src="/images/chevronLeft.svg" height={10} width={10} />
-          </button>
-        </div>
-      </div>
-  
-        <table className="col-12">
-          <thead>
-            <tr>
-              {persianDaysOfWeek.map((day) => (
-                <th className={styles.th}>{day}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {persianDatesByWeek.map((week) => (
-              <tr className="col-7">
-                {week.map((date) => {
-                  // const persianDayOfWeek = persianDaysOfWeek[date.day()];
-                  const persianMonth = persianMonthNames[date.jMonth()];
-                  return (
-                    <td
-                      className={
-                        jMoment().format("jYYYY/jM/jD") ===
-                        date.format("jYYYY/jM/jD")
-                          ? styles.today
-                          :  date.isAfter(jMoment())
-                          ? styles.tdaf
-                          : currentDate.jMonth() == date.jMonth()
-                          ? styles.td
-                          : styles.tdlm
-                      }
-                    >
-                      {jMoment().format("jYYYY/jM/jD") ===
-                      date.format("jYYYY/jM/jD")
-                        ? ` ${date.format(`jD `)}  `
-                        : date.format(`jD `)}
-                    </td>
-                  );
-                })}
+
+          <table className="col-12">
+            <thead>
+              <tr>
+                {persianDaysOfWeek.map((day) => (
+                  <th className={styles.th}>{day}</th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-    </div>
+            </thead>
+            <tbody>
+              {persianDatesByWeek.map((week) => (
+                <tr className="col-7">
+                  {week.map((date) => {
+                    // const persianDayOfWeek = persianDaysOfWeek[date.day()];
+                    const persianMonth = persianMonthNames[date.jMonth()];
+                    return (
+                      <td
+                        className={
+                          activeDate.format("jYYYY/jM/jD") ===
+                          date.format("jYYYY/jM/jD")
+                            ? styles.activeDay
+                            : jMoment().format("jYYYY/jM/jD") ===
+                              date.format("jYYYY/jM/jD")
+                            ? styles.today
+                            : date.isAfter(jMoment())
+                            ? styles.tdaf
+                            : currentDate.jMonth() == date.jMonth()
+                            ? styles.td
+                            : styles.tdlm
+                        }
+                        onClick={() => handleClickDay(date)}
+                      >
+                        {jMoment().format("jYYYY/jM/jD") ===
+                        date.format("jYYYY/jM/jD")
+                          ? ` ${date.format(`jD `)}  `
+                          : date.format(`jD `)}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 };
 

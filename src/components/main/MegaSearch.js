@@ -15,6 +15,8 @@ const MegaSearch = () => {
         style={{
           // backgroundColor: "#11999e",
           borderBottom: "solid 2px #ddd",
+          // marginTop:-50,
+          zIndex:100
         }}
       >
         <div
@@ -22,8 +24,8 @@ const MegaSearch = () => {
           style={{
             backgroundColor: "#fff",
             height: "100%",
-            borderTopLeftRadius: 25,
-            borderTopRightRadius: 25,
+            // borderTopLeftRadius: 25,
+            // borderTopRightRadius: 25,
             justifyContent: "center",
             alignItems: "center",
             paddingBottom: 20,

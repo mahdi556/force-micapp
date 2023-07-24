@@ -20,6 +20,7 @@ const MegaDoctors = ({ doctors }) => {
                   width={25}
                   height={25}
                   className="me-2"
+                  alt=""
                 />
                 <span className={styles.txt1}>تخصص: {item.expert}</span>
               </div>
@@ -29,6 +30,7 @@ const MegaDoctors = ({ doctors }) => {
                   width={25}
                   height={25}
                   className="me-2"
+                  alt=""
                 />
                 <span className={styles.txt1}>
                   شناسه نظام پزشکی: {item.nezam}
@@ -44,6 +46,7 @@ const MegaDoctors = ({ doctors }) => {
                     width={18}
                     height={18}
                     className="me-2"
+                    alt=""
                   />
                   <span className={styles.txt2}>ارتباط با پزشک</span>
                 </Link>
@@ -56,6 +59,7 @@ const MegaDoctors = ({ doctors }) => {
                     width={18}
                     height={18}
                     className="me-2"
+                    alt=""
                   />
                   <span className={styles.txt3}>دریافت نوبت</span>
                 </Link>
