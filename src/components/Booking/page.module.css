@@ -1,25 +1,42 @@
-.sec1{
-  width:85%;
+.sec1 {
+  width: 85%;
   border: #11999e solid 2px;
   border-radius: 20px;
 }
-.txt1{
+.txt1 {
   color: #11999e;
   font-weight: bold;
   font-family: ShabnamFD;
 }
-.sec2{
+.sec2 {
   width: 95%;
   border-radius: 20px;
   border: #11999e solid 2px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;}
-.txt2{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.txt2 {
   color: #11999e;
   font-family: ShabnamFD;
   font-weight: bold;
 }
-.timeSell{
+.timeSell {
+  /* From https://css.glass */
+  background: rgba(254, 254, 254, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(254, 254, 254, 0.11);
+  color: #64aeb1;
+  font-family: ShabnamFD;
+  font-weight: 500;
+  min-height: 60px;
+  font-size: 18px;
+}
+.timeNotrefer {
   background-color: red;
+  opacity: 0.25;
   border-radius: 10px;
   text-align: center;
   color: #fff;
@@ -27,27 +44,24 @@
   font-weight: 500;
   min-height: 60px;
 }
-.timeNotrefer{
-  background-color: red;
-  opacity: .25;
-  border-radius: 10px;
+.timefree {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.2px);
+  -webkit-backdrop-filter: blur(0.2px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+
+  /* background-color: #11999e; */
+  /* border-radius: 10px; */
   text-align: center;
-  color: #fff;
+  color: #11999e;
   font-family: ShabnamFD;
-  font-weight: 500;
+  font-weight: bold;
   min-height: 60px;
+  font-size: 18px;
 }
-.timefree{
-  background-color: #11999e;
-  border-radius: 10px;
-  text-align: center;
-  color: #fff;
-  font-family: ShabnamFD;
-  font-weight: 500;
-  min-height: 60px;
- 
-}
-.timeDelay{
+.timeDelay {
   background-color: #abc517;
   border-radius: 10px;
   text-align: center;
@@ -55,9 +69,8 @@
   font-family: ShabnamFD;
   font-weight: 500;
   min-height: 60px;
- 
 }
-.timeDone{
+.timeDone {
   background-color: #715eb8;
   border-radius: 10px;
   text-align: center;
@@ -65,5 +78,9 @@
   font-family: ShabnamFD;
   font-weight: 500;
   min-height: 60px;
- 
+}
+.queWrapper {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(73,185,193,1) 25%); 
+    border-radius: 15px;
 }

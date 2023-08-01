@@ -48,7 +48,7 @@ const Main = () => {
       >
         <MegaSearch />
         <Carousel />
-        <InsuarWidjet />
+        {/* <InsuarWidjet /> */}
         <ExpertWidget />
         <BannerWidget />
         <MedicalWidget />

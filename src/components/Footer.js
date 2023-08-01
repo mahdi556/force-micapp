@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
   
-    <nav className="fixed-bottom">
+    <nav className="fixed-bottom d-md-none">
       <div
         className="footNav"
         style={{

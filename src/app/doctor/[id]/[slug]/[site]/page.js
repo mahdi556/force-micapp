@@ -1,9 +1,9 @@
 import Doctor from "@/components/Doctor/Doctor"
 
-const doctorPage = ()=>{
+const doctorPage = ({params})=>{    
     return(
         <>
-        <Doctor />
+        <Doctor id={params.id} />
         </>
     )
 }

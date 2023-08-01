@@ -7,7 +7,6 @@ const BannerWidget = () => {
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
-      console.log(width);
     };
     setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -19,7 +18,7 @@ const BannerWidget = () => {
       <div className="mt-3">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPPIOTQ6dRUAtKe05F8jiDqDNu5ES82OhBe4jfFGMVg9Uz-5ZkGPTff-uAOvyjrJJkFA&usqp=CAU"
-          height={width / 3}
+          height={width / 4.5}
           width={width}
           alt=""
         />

@@ -12,13 +12,14 @@ import { StatusBar, Style } from "@capacitor/status-bar";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { Capacitor } from "@capacitor/core";
-import 'sweetalert2/src/sweetalert2.scss'
+import "sweetalert2/src/sweetalert2.scss";
 // import { ScreenOrientation } from "@capacitor/sc";
 const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
   ssr: false,
 });
 import { App as CapacitorApp } from "@capacitor/app";
 import axios from "axios";
+import { AuthProvider } from "@/context/AuthContext";
 
 export default function RootLayout({ children }) {
   axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
@@ -59,24 +60,26 @@ export default function RootLayout({ children }) {
           paddingTop: 80,
         }}
       >
-        <ToggleProvider>
-          {appLoaded ? (
-            <>
-              <Header />
-              <div
-                style={{
-                  zIndex: 100,
-                }}
-              >
-                <SideBar />
-                {children}
-              </div>
-              <Footer />
-            </>
-          ) : (
-            <Splash />
-          )}
-        </ToggleProvider>
+        <AuthProvider>
+          <ToggleProvider>
+            {appLoaded ? (
+              <>
+                <Header />
+                <div
+                  style={{
+                    zIndex: 100,
+                  }}
+                >
+                  <SideBar />
+                  {children}
+                </div>
+                <Footer />
+              </>
+            ) : (
+              <Splash />
+            )}
+          </ToggleProvider>
+        </AuthProvider>
       </body>
       <Script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

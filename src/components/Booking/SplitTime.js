@@ -7,14 +7,14 @@ function splitTime(office, reserves, activeDate) {
     var delay = 0;
     let time = moment({
       year: moment(activeDate).locale("en").format("YYYY"),
-      month: moment(activeDate).locale("en").format("MM") -1,
+      month: moment(activeDate).locale("en").format("MM") - 1,
       day: moment(activeDate).locale("en").format("DD"),
       hour: item.start,
       minute: 0,
     });
     let end = moment({
       year: moment(activeDate).locale("en").format("YYYY"),
-      month: moment(activeDate).locale("en").format("MM")-1,
+      month: moment(activeDate).locale("en").format("MM") - 1,
       day: moment(activeDate).locale("en").format("DD"),
       hour: item.finish,
       minute: 0,
@@ -26,15 +26,10 @@ function splitTime(office, reserves, activeDate) {
       var type = "";
       var related = false;
       var status = "free";
-      
+
       reserves.forEach((case1) => {
-        // console.log(moment(case1.time).format("YYYY-MM-DD HH:mm:ss"))
-        console.log(moment(time).locale("en").format("YYYY-MM-DD HH:mm:ss"))
         if (
-          moment(time).locale("en").format("YYYY-MM-DD HH:mm:ss") ===
-          moment(case1.time).format("YYYY-MM-DD HH:mm:ss")
-          // case1.hour == moment(time).locale("fa").format("HH") &&
-          // case1.minute == moment(time).locale("fa").format("mm")
+          moment(time).locale("en").format("YYYY-MM-DD HH:mm:ss") === case1.time
         ) {
           type = case1.type;
           period = case1.qty;
@@ -44,40 +39,37 @@ function splitTime(office, reserves, activeDate) {
           status = case1.status;
         }
       });
-        if (isReserved && !related) {
-          newArray.push({
-            section: item.name,
-            time: time.toString(),
-            displayTime: moment(time).add(delay, "m").toString(),
-            res: true,
-            status: status,
-            id: id,
-            type: type,
-            len: period * office.interval,
-            related: related,
-          });
-        } else if (!isReserved && !related) {
-          // if (
-          //   moment().hour() < moment(time).hour() ||
-          //   (moment(time).hour() === moment().hour() &&
-          //     moment().minute() < moment(time).minute())
-          // ) {
-          newArray.push({
-            section: item.name,
-            time: time.toString(),
-            displayTime: moment(time).add(delay, "m").toString(),
-            res: false,
-            status: "free",
-            id: id,
-            type: type,
-          });
-          // }
-        }
-
-        time = time.add(office.interval, "m");
-        id = id + 1;
-      }
-      temp.push({ name: item.name, array: newArray });
+      if (isReserved && !related) {
+        newArray.push({
+          section: item.name,
+          time: time.toString(),
+          displayTime: moment(time).add(delay, "m").toString(),
+          res: true,
+          status: status,
+          id: id,
+          type: type,
+          len: period * office.interval,
+          related: related,
+        });
+      } else if (!isReserved && !related) {
+        // if (
+          // moment(time).isAfter(moment()) ) {
+           
+            newArray.push({
+              section: item.name,
+              time: time.toString(),
+              displayTime: moment(time).add(delay, "m").toString(),
+              res: false,
+              status: "free",
+              id: id,
+              type: type,
+            });
+          }
+      //  }
+       time = time.add(office.interval, "m");
+      id = id + 1;
+    }
+    temp.push({ name: item.name, array: newArray });
   });
 
   return temp;

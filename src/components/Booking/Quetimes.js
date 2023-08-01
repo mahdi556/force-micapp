@@ -8,7 +8,7 @@ import QueContext from "@/context/QueContext ";
 import axios from "axios";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import ReserveModal from "./ReserveModal";
-const Quetimes = () => {
+const Quetimes = ({id}) => {
   const { intervals, setIntervals, activeDate } = useContext(QueContext);
   moment.locale("fa");
   const [srModal, setSrModal] = useState(false);
@@ -101,7 +101,7 @@ const Quetimes = () => {
               نوبت {item1.name}
             </div>
             {item1.array.map((item, key) => (
-              <div className="col-4     pointer" key={item.id}>
+              <div className="col-4 col-md-3 col-lg-2     pointer" key={item.id}>
                 {item.res && item.status == "wait" ? (
                   <>
                     <div

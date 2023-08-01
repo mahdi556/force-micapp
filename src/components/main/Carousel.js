@@ -45,7 +45,7 @@ const Carousel = () => {
               src="https://img.tebyan.net/big/1398/03/23620618017511732162172121811835832305438.jpg?w=380"
               className="d-block mx-auto  rounded-4"
               width={width * 0.9}
-              height={150}
+              height={width/4.5}
               alt="..."
             />
           </div>
@@ -54,7 +54,7 @@ const Carousel = () => {
               src="https://afrateb.com/wp-content/uploads/2022/04/%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%D8%A8%DB%8C%D9%85%D8%A7%D8%B1%D8%B3%D8%AA%D8%A7%D9%86-%D9%87%D8%A7%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86.jpg"
               className="d-block mx-auto rounded-4"
               width={width * 0.9}
-              height={150}
+              height={width/4.5}
               alt="..."
             />
           </div>
@@ -63,7 +63,7 @@ const Carousel = () => {
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoYZ-FX4nHOKvBZCXnUHo1n41NgVdljvCkGgyNWvaw-TYr2adrYD6BmmqnVcGJ1xfX8ZE&usqp=CAU"
               className="d-block mx-auto rounded-4"
               width={width * 0.9}
-              height={150}
+              height={width/4.5}
               alt="..."
             />
           </div>
