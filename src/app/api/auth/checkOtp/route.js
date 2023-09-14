@@ -1,5 +1,3 @@
-import { handleError } from "@/components/lib/helper";
-import axios from "axios";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -38,7 +36,7 @@ export async function POST(req) {
       path: "/",
     });
 
-    return NextResponse.json({ user: data.data.user }, { status: 200 });
+    return NextResponse.json({ user: data.data.user,token:data.data.token }, { status: 200 });
   } else {
      return NextResponse.json({ message: data.message}, { status: resApi.status });
   }

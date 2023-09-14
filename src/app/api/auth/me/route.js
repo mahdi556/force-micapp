@@ -6,7 +6,6 @@ export async function GET() {
      if (!token) {
         return NextResponse.json({ message: { 'err': ['Not Authorized'] } }, { status: 403 });
     }
-
     const resApi = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}auth/me`, {
         method: 'GET',
         headers: {
@@ -16,7 +15,7 @@ export async function GET() {
     const data = await resApi.json();
     
     if (resApi.ok) {
-        return NextResponse.json({ user: data.data }, { status: 200 })
+        return NextResponse.json({ user: data.data,token:token.value }, { status: 200 })
     } else {
         return NextResponse.json({ message: { 'err': ['User Forbidden'] } }, { status: resApi.status })
     }

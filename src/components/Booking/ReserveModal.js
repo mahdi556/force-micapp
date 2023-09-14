@@ -2,10 +2,19 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import axios from "axios";
 import moment from "jalali-moment";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-
+import sendReserve from "./sendReserve";
+import QueContext from "@/context/QueContext ";
+import AuthContext from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-success",
+    cancelButton: "btn btn-danger",
+  },
+  buttonsStyling: false,
+});
 const style = {
   position: "absolute",
   top: "50%",
@@ -18,60 +27,56 @@ const style = {
   p: 4,
 };
 
-export default function ReserveModal({
-  show,
-  data,
-  office,
-  handleRMClose,
-  getOffice,
-  activeDate
-}) {
+export default function ReserveModal({ show, data, handleRMClose, office }) {
+  const router = useRouter();
   const [open, setOpen] = React.useState(show);
   const handleOpen = () => setOpen(true);
   const handleClose = () => handleRMClose();
+  const { user, setLoading } = React.useContext(AuthContext);
   React.useEffect(() => {}, [show, data]);
   const handleReserve1 = async (item) => {
-    try {
-      await axios({
-        url: "reserves",
-        method: "post",
-        data: {
-          time: moment(data.time).locale("en").format("YYYY-MM-DD HH:mm:ss"),
-          display_time: moment(data.displayTime)
-            .locale("en")
-            .format("YYYY-MM-DD HH:mm:ss"),
-          hour: moment(data.time).locale("fa").format("HH"),
-          minute: moment(data.time).locale("fa").format("mm"),
-          qty: item.rate,
-          type: item.name,
-          section: data.section,
-        },
-
-        headers: {
-          // Authorization: `Bearer ${req.cookies.token}`,
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          handleRMClose();
-          getOffice();
-        })
-        .catch(function (error) {
-          handleRMClose();
-          if (error.response.status == 406) {
-            Swal.fire({
-              icon: "error",
-              title: "خطا!",
-              text: "با توجه به مدت زمان مورد نیاز جهت ویزیت شما و نوبت بعدی رزرو شده،امکان رزرو این ساعت وجود ندارد",
-              confirmButtonText: 'قبول', 
-            });
-          }
-
-          // console.log(error);
-        });
-    } catch (e) {
-      // res.status(500).json({ message: { err: ["Server Error"] } });
+    handleRMClose();
+    const result = await Swal.fire({
+      // title: ` آیا از انتخاب تاریخ ${moment(data.time)
+      //   .locale("fa")
+      //   .format("YYYY/MM/DD HH:mm:ss")}   اطمینان دارید؟`,
+      html: `
+          <div> تاریخ: ${moment(data.time)
+            .locale("fa")
+            .format("YYYY/MM/DD")}</div>
+        <br>   <div> ساعت: ${moment(data.time)
+          .locale("fa")
+          .format("HH:mm")}</div>
+        <br>  <div>    مطب  <b >: مطب اصلی </b>  </div>
+        <br>   <div>  نام پزشک  <b >: دکتر مهدی حقیقتی </b> </div>
+        <br>  <div> مبلغ قابل پرداخت  <b >: 10000 تومان </b> </div>
+        
+        `,
+      icon: "warning",
+      iconHtml: "i",
+      confirmButtonText: "تائید و پرداخت",
+      cancelButtonText: "انصراف",
+      showCancelButton: true,
+      showCloseButton: true,
+    });
+    if (result.isConfirmed) {
+      setLoading(true);
+      const response = await sendReserve(data, item, user.user.id,user.token);
+      setLoading(false);
+      if (response.status == 200) {
+        router.push(response.data.data.url);
+      }
+    } else if (
+      /* Read more about handling dismissals below */
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        "انصراف",
+        "شما از پرداخت منصرف شده اید :)",
+        "error"
+      );
     }
+    // });
   };
   return (
     <div>
@@ -106,6 +111,9 @@ export default function ReserveModal({
           </button>
         </Box>
       </Modal>
+      {/* <div>
+        : مطب اصلی <b>مطب</b>
+      </div> */}
     </div>
   );
 }

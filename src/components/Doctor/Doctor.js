@@ -40,8 +40,7 @@ const Doctor = ({ id }) => {
       // res.status(500).json({ message: { err: ["Server Error"] } });
     }
   };
-  console.log(doctor)
-  const handleOffice = () => {
+   const handleOffice = () => {
     setSrModal(true);
   };
   return (

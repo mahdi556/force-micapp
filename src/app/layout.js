@@ -20,6 +20,7 @@ const SideBar = dynamic(() => import("@/components/sidebar/SideBare"), {
 import { App as CapacitorApp } from "@capacitor/app";
 import axios from "axios";
 import { AuthProvider } from "@/context/AuthContext";
+import LoadingModal from "@/components/LoadingModal";
 
 export default function RootLayout({ children }) {
   axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
             {appLoaded ? (
               <>
                 <Header />
+                <LoadingModal />
                 <div
                   style={{
                     zIndex: 100,

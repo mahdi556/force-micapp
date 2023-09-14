@@ -7,6 +7,7 @@ import moment from "jalali-moment";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import ToggleContext from "@/context/ToggleContext";
 import AuthContext from "@/context/AuthContext";
+import Loading from "./loading";
 
 const style = {
   position: "absolute",
@@ -22,11 +23,23 @@ const style = {
 
 export default function LoginModal({ show }) {
   const [open, setOpen] = React.useState(show);
-  const { loginModal, setLoginModal, userStatus, sendOtp } =
-    React.useContext(AuthContext);
+  const {
+    loginModal,
+    setLoginModal,
+    userStatus,
+    sendOtp,
+    login,
+    showAlert,
+    setShowAlert,
+    newUser,
+    loading
+  } = React.useContext(AuthContext);
   React.useEffect(() => {}, [userStatus]);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setLoginModal(false);
+  const handleClose = () => {
+    setShowAlert(false);
+    setLoginModal(false);
+  };
   React.useEffect(() => {}, [loginModal]);
   const [error1, setError1] = React.useState(false);
   const [cellphone, setCellphone] = React.useState(null);
@@ -34,8 +47,7 @@ export default function LoginModal({ show }) {
   const [codeMelli, setCodeMelli] = React.useState(null);
   const [name, setName] = React.useState(null);
   const [error2, setError2] = React.useState(false);
-  const { login } = React.useContext(AuthContext);
-   const handleCellphone = (event) => {
+  const handleCellphone = (event) => {
     if (!event.target.validity.valid) {
       setError1(true);
     } else {
@@ -60,7 +72,9 @@ export default function LoginModal({ show }) {
   };
 
   return (
+    
     <div>
+     
       <Modal
         open={loginModal}
         onClose={handleClose}
@@ -78,7 +92,14 @@ export default function LoginModal({ show }) {
               }}
             >
               <div className="d-flex flex-column">
-                <h6 className="text-center mb-5">ورود / عضویت</h6>
+                {showAlert && (
+                  <div className="bg-warning ps-2 pt-1 mb-3">
+                    <h6 className="text-center">
+                      ابتدا باید در سامانه وارد شوید
+                    </h6>
+                  </div>
+                )}
+                {/* <h6 className="text-center mb-5">ورود / عضویت</h6> */}
                 <div className="mb-2">
                   <div className="d-flex align-items-center ">
                     <label className="me-2">تلفن همراه</label>
@@ -131,14 +152,16 @@ export default function LoginModal({ show }) {
               <div className="d-flex flex-column">
                 <h6 className="text-center mb-5">ورود / عضویت</h6>
 
-                <div className="d-flex align-items-center mb-2">
-                  <label className="me-2">نام و نام خانوادگی</label>
-                  <input
-                    type="text"
-                    className="ms-auto"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
+                {newUser && (
+                  <div className="d-flex align-items-center mb-2">
+                    <label className="me-2">نام و نام خانوادگی</label>
+                    <input
+                      type="text"
+                      className="ms-auto"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                )}
                 <div className="mb-2">
                   <div className="d-flex align-items-center ">
                     <label className="me-2">کد ارسال شده</label>
@@ -153,29 +176,31 @@ export default function LoginModal({ show }) {
                     />
                   </div>
                 </div>
-                <div className="mb-4">
-                  <div className="d-flex align-items-center ">
-                    <label className="me-2">کد ملی</label>
-                    <input
-                      type="text"
-                      className="ms-auto"
-                      dir="ltr"
-                      pattern="[0-9]{10}"
-                      title="کدملی را به درستی وارد نمایید"
-                      onChange={(e) => setCodeMelli(e.target.value)}
-                    />
+                {newUser && (
+                  <div className="mb-4">
+                    <div className="d-flex align-items-center ">
+                      <label className="me-2">کد ملی</label>
+                      <input
+                        type="text"
+                        className="ms-auto"
+                        dir="ltr"
+                        pattern="[0-9]{10}"
+                        title="کدملی را به درستی وارد نمایید"
+                        onChange={(e) => setCodeMelli(e.target.value)}
+                      />
+                    </div>
+                    {error2 && (
+                      <span
+                        className="text-danger"
+                        style={{
+                          fontSize: 12,
+                        }}
+                      >
+                        کدملی را به درستی وارد نمایید. مثال:1234567890
+                      </span>
+                    )}
                   </div>
-                  {error2 && (
-                    <span
-                      className="text-danger"
-                      style={{
-                        fontSize: 12,
-                      }}
-                    >
-                      کدملی را به درستی وارد نمایید. مثال:1234567890
-                    </span>
-                  )}
-                </div>
+                )}
               </div>
               <button
                 className="btn btn-success btn-sm mt-3 col-12 ms-auto"

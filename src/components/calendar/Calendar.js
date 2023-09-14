@@ -72,9 +72,7 @@ const IndexPage = () => {
   const persianCurrentMonth = persianMonthNames[currentDate.jMonth()];
   const handleClickDay = (date) => {
     setActiveDate(date);
-    // console.log(date)
   };
-
   // Render component
   return (
     <>
@@ -118,18 +116,20 @@ const IndexPage = () => {
             <thead>
               <tr>
                 {persianDaysOfWeek.map((day) => (
-                  <th className={styles.th}>{day}</th>
+                  <th className={styles.th} key={day}>
+                    {day}
+                  </th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {persianDatesByWeek.map((week) => (
-                <tr className="col-7">
+                <tr className="col-7" >
                   {week.map((date) => {
                     // const persianDayOfWeek = persianDaysOfWeek[date.day()];
                     const persianMonth = persianMonthNames[date.jMonth()];
                     return (
-                      <td
+                      <td 
                         className={
                           activeDate.format("jYYYY/jM/jD") ===
                           date.format("jYYYY/jM/jD")

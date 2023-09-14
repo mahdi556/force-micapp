@@ -5,6 +5,7 @@ import ToggleContext from "@/context/ToggleContext";
 import styles from "@/components/sidebar/SideBar.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import AuthContext from "@/context/AuthContext";
 export default function SwipeableTemporaryDrawer() {
   const [width, setWidth] = React.useState(500);
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function SwipeableTemporaryDrawer() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [width]);
+  const {user} = React.useContext(AuthContext)
   const { sidebar, setSidebar } = React.useContext(ToggleContext);
   const [state, setState] = React.useState({
     right: sidebar,
@@ -45,7 +47,7 @@ export default function SwipeableTemporaryDrawer() {
             width: width * 0.6,
           }}
         >
-          <div className="d-flex align-items-center  bgMic px-3 py-3">
+         { user && <div className="d-flex align-items-center  bgMic px-3 py-3">
             <img
               className={styles.avatar}
               src="/images/profile.jpeg"
@@ -54,10 +56,10 @@ export default function SwipeableTemporaryDrawer() {
               alt=""
             />
             <div className="d-flex ms-3 flex-column">
-              <span className={styles.userName}>مهدی حقیقتی</span>
+              <span className={styles.userName}>{user.name}</span>
               <span className={styles.welcome}>عزیز خوش آمدید</span>
             </div>
-          </div>
+          </div>}
           <ul className="d-flex flex-column mt-3">
             <li
               className="d-flex align-items-baseline mb-4 pointer"

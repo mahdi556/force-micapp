@@ -75,6 +75,8 @@ export default function Footer() {
           label="نوبت من"
           value="favorites"
           icon={<ConfirmationNumberIcon />}
+          onClick={()=>router.push('/user/reserves')}
+
         />
         <BottomNavigationAction
           label="تنظیمات"

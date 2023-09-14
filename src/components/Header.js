@@ -7,7 +7,7 @@ import AuthContext from "@/context/AuthContext";
 
 const Header = () => {
   const { sidebar, setSidebar } = useContext(ToggleContext);
-  const { loginModal, setLoginModal, user,logout } = useContext(AuthContext);
+  const { loginModal, setLoginModal, user, logout } = useContext(AuthContext);
   const handleLogout = async () => {
     await logout();
   };
@@ -58,18 +58,31 @@ const Header = () => {
           میک اَپ
         </a>
         {user ? (
-          <button
-            className=" btn btn-outline py-1 px-3 text-white me-5 ms-auto"
-            style={{
-              fontSize: 16,
-              fontFamily: "shabnam",
-              border: "solid 1px #fff",
-              borderRadius: 10,
-            }}
-            onClick={() => handleLogout()}
-          >
-            خروج
-          </button>
+          <div>
+            <button
+              className=" btn btn-outline py-1 px-3 text-white me-5 ms-auto"
+              style={{
+                fontSize: 16,
+                fontFamily: "shabnam",
+                border: "solid 1px #fff",
+                borderRadius: 10,
+              }}
+            >
+              {user.user.name}
+            </button>
+            <button
+              className=" btn btn-outline py-1 px-3 text-white me-5 ms-auto"
+              style={{
+                fontSize: 16,
+                fontFamily: "shabnam",
+                border: "solid 1px #fff",
+                borderRadius: 10,
+              }}
+              onClick={() => handleLogout()}
+            >
+              خروج
+            </button>
+          </div>
         ) : (
           <button
             className=" btn btn-outline py-1 px-3 text-white me-5 ms-auto"
